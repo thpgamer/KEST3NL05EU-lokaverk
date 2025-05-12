@@ -1,5 +1,5 @@
 # KEST3NL05EU-lokaverk
-1. Install and configure the server1, client1 and client2 with hostnames and domain as ddp.is
+# 1. Install and configure the server1, client1 and client2 with hostnames and domain as ddp.is
 ### Server 1 (Ubuntu
 ![image](https://github.com/user-attachments/assets/eb617061-9367-45d9-8463-930e35f2f234)
 
@@ -11,9 +11,15 @@
 ### Client 2 (CentOS)
 ![image](https://github.com/user-attachments/assets/0e554994-859f-4d79-a5bd-678238347333)
 
-3. Configure server1 with static IP Address, from the IP Address block 192.168.100.0/24. The server
-must be configured with the 10th usable IP Address.
-4. Install and configure DHCP on server1, so both clients get IP Addresses, Gateway, DNS IP address
+# 2. Configure server1 with static IP Address, from the IP Address block 192.168.100.0/24. The server must be configured with the 10th usable IP Address.
+
+Image from Server 1 /etc/netplan/50-cloud-init.yaml File
+![image](https://github.com/user-attachments/assets/3fb664f4-e77c-48aa-a2f6-463717d5475e)
+
+
+
+
+3. Install and configure DHCP on server1, so both clients get IP Addresses, Gateway, DNS IP address
 and domain name automatically via HDCP.
 5. Install and configure DNS server on server1, so Hostnames are resolved to IP Addresses.
 6. Create the users accounts using a script, see the Users file.
