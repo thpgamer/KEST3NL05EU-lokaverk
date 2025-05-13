@@ -27,6 +27,9 @@ Then I did "ip a" to find if the IP is now a Static IP
 
 # 3. Install and configure DHCP on server1, so both clients get IP Addresses, Gateway, DNS IP address and domain name automatically via HDCP.
 
+Installed the DHCP server with "sudo apt install isc-dhcp-server"
+
+
 5. Install and configure DNS server on server1, so Hostnames are resolved to IP Addresses.
 6. Create the users accounts using a script, see the Users file.
 7. Install and configure MySQL on server1 and create Human Resource database. The database
