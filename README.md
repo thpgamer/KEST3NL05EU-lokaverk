@@ -21,8 +21,12 @@ After I added the block of code I did "sudo netplan apply" to apply the changes 
 
 
 
-3. Install and configure DHCP on server1, so both clients get IP Addresses, Gateway, DNS IP address
+# 3. Install and configure DHCP on server1, so both clients get IP Addresses, Gateway, DNS IP address
 and domain name automatically via HDCP.
+
+Image from /etc/dhcp/dhcpd.conf to put everything right.
+![image](https://github.com/user-attachments/assets/f32db00d-8d8f-44f4-a8cf-cb012af2716f)
+
 5. Install and configure DNS server on server1, so Hostnames are resolved to IP Addresses.
 6. Create the users accounts using a script, see the Users file.
 7. Install and configure MySQL on server1 and create Human Resource database. The database
