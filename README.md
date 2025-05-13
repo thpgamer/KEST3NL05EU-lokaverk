@@ -14,12 +14,12 @@
 # 2. Configure server1 with static IP Address, from the IP Address block 192.168.100.0/24. The server must be configured with the 10th usable IP Address.
 
 Image from Server 1 /etc/netplan/01-network-manager.yaml File
-![image](https://github.com/user-attachments/assets/d59073f6-a08d-47fc-becb-3bb0f9067588)
-
+![image](https://github.com/user-attachments/assets/06028926-13a7-41b3-a87c-3b94a720d6ad)
 
 After I added the block of code I did "sudo netplan apply" to apply the changes to the .yaml file.
 Then I did "ip a" to find if the IP is now a Static IP
-![Skjámynd 2025-05-13 181927](https://github.com/user-attachments/assets/d890cbbc-9b96-43fa-9d98-87f0ea540bae)
+![image](https://github.com/user-attachments/assets/33d5e08c-fd11-4104-9f4d-4b022ceda409)
+
 
 
 
