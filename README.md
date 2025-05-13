@@ -18,14 +18,13 @@ Image from Server 1 /etc/netplan/50-cloud-init.yaml File
 
 After I added the block of code I did "sudo netplan apply" to apply the changes to the .yaml file.
 
+![Skjámynd 2025-05-13 181927](https://github.com/user-attachments/assets/d890cbbc-9b96-43fa-9d98-87f0ea540bae)
 
 
 
-# 3. Install and configure DHCP on server1, so both clients get IP Addresses, Gateway, DNS IP address
-and domain name automatically via HDCP.
 
-Image from /etc/dhcp/dhcpd.conf to put everything right.
-![image](https://github.com/user-attachments/assets/f32db00d-8d8f-44f4-a8cf-cb012af2716f)
+
+# 3. Install and configure DHCP on server1, so both clients get IP Addresses, Gateway, DNS IP address and domain name automatically via HDCP.
 
 5. Install and configure DNS server on server1, so Hostnames are resolved to IP Addresses.
 6. Create the users accounts using a script, see the Users file.
