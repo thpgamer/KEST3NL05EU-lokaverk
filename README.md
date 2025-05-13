@@ -16,6 +16,8 @@
 Image from Server 1 /etc/netplan/50-cloud-init.yaml File
 ![image](https://github.com/user-attachments/assets/3fb664f4-e77c-48aa-a2f6-463717d5475e)
 
+After I added the block of code I did "sudo netplan apply" to apply the changes to the .yaml file.
+
 
 
 
