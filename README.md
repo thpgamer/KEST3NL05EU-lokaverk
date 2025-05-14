@@ -13,11 +13,6 @@
 
 # 2. Configure server1 with static IP Address, from the IP Address block 192.168.100.0/24. The server must be configured with the 10th usable IP Address.
 
-Image from Server 1 /etc/netplan/01-network-manager.yaml File
-![image](https://github.com/user-attachments/assets/06028926-13a7-41b3-a87c-3b94a720d6ad)
-
-After I added the block of code I did "sudo netplan apply" to apply the changes to the .yaml file.
-Then I did "ip a" to find if the IP is now a Static IP
 ![image](https://github.com/user-attachments/assets/33d5e08c-fd11-4104-9f4d-4b022ceda409)
 
 
@@ -26,10 +21,18 @@ Then I did "ip a" to find if the IP is now a Static IP
 
 
 # 3. Install and configure DHCP on server1, so both clients get IP Addresses, Gateway, DNS IP address and domain name automatically via HDCP.
+### server1 (Ubuntu)
+![image](https://github.com/user-attachments/assets/0581d89f-a477-46a3-b8e0-c6aad6308a73)
 
-Installed the DHCP server with "sudo apt install isc-dhcp-server"
+
+### client1 (Ubuntu)
+![image](https://github.com/user-attachments/assets/2db125d2-bb02-4d3f-9acc-f3bdad8b4807)
 
 
+### client2 (CentOS)
+![image](https://github.com/user-attachments/assets/faeae2bb-ba71-4964-9f66-de255adf6337)
+
+# 4. Install and configure DNS server on server1, so Hostnames are resolved to IP Addresses
 5. Install and configure DNS server on server1, so Hostnames are resolved to IP Addresses.
 6. Create the users accounts using a script, see the Users file.
 7. Install and configure MySQL on server1 and create Human Resource database. The database
