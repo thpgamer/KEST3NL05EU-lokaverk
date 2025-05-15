@@ -93,6 +93,49 @@ And with that Clients can ping server1 and eachother and server 1 can ping both 
 
 # 5. Create the users accounts using a script, see the Users file.
 
+I first moved over the .CSV file to the VMware Linux Server 1 by doing:
+```scp /Users/thord/Downloads/Linux_Users.CSV server1@192.168.100.10:/home/server1```
+on my own Laptop which would safely copy the file to the directory /home/server1/Linux_Users.CSV
+
+After that I see that when I cat the file I get a bunch of errors due to the File being in UTC-16
+I change it to UTC-8 with:
+```iconv -f utf-16 -t utf-8 Linux_Users.CSV -o users_clean.csv```
+
+I create a Script with 
+```nano ~/create_users.sh```
+and use this script code:
+```
+INPUT="$HOME/users_clean.csv"
+IFS=','
+
+while read name firstname lastname username email dept empid; do
+    # Skip header line
+    if [[ "$username" == "Username" ]]; then
+        continue
+    fi
+
+    echo "Creating user: $username ($name)"
+
+    # Create user with home directory and full name
+    sudo useradd -m -c "$name" "$username"
+
+    # Set default password to "password123"
+    echo "$username:password123" | sudo chpasswd
+
+    # Force password change on first login
+    sudo chage -d 0 "$username"
+done < "$INPUT"
+```
+
+
+After this is done I can confirm that they did infact get created with 
+```
+ls /home
+```
+
+![Skjámynd 2025-05-15 125710](https://github.com/user-attachments/assets/586a6415-9e37-4f17-b08a-d8797561b2f4)
+
+
 # 6. Install and configure MySQL on server1 and create Human Resource database. The database stores information about employees, employees are identified by their Kennitala, Firstname, Lastname, Email, phone Number, hire date and salary. Employees work in Departments where each department has one manager, departments are identified by department ID, department name. Each department is in a different location. Locations are identified by their location ID, city, Address, and zip code. One or more employees work in different jobs, and the jobs are identified by Job ID, job title, Min salary and max salary.
 
 # 7. Due to data lossthe company policy requires backups weekly, assystem engineer you are required to schedule backups of home directories to run weekly at midnight each Friday.
