@@ -149,6 +149,44 @@ ls /home
 
 # 7. Due to data lossthe company policy requires backups weekly, assystem engineer you are required to schedule backups of home directories to run weekly at midnight each Friday.
 
+I created a backup directory with 
+
+```
+sudo mkdir -p /backups
+sudo chown root:root /backups
+sudo chmod 700 /backups
+```
+
+I created a script to backup all files in Home Directory
+
+```
+# Set date format and filename
+DATE=$(date +%Y-%m-%d)
+BACKUP_FILE="/backups/home_backup_$DATE.tar.gz"
+
+# Create the backup
+tar -czf "$BACKUP_FILE" /home
+
+# Optional: Delete backups older than 4 weeks
+find /backups/home_backup_*.tar.gz -mtime +28 -delete
+
+```
+
+I schedule it with "cron" with 
+
+```
+sudo crontab -e
+```
+
+and put this code into it 
+
+```
+0 0 * * 5 /usr/local/bin/weekly_home_backup.sh
+```
+
+0 0 * * 5 is for midnight on Fridays
+
+
 # 8. Install and configure NTP on server1 and clients, server1 must be master server and client must synchronize their time with the server.
 
 # 9. Install and configure syslog server on server1, server1 should get logs from both the clients for proactive management and monitoring.
