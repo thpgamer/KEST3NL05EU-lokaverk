@@ -26,11 +26,12 @@
 
 # 2. Configure server1 with static IP Address, from the IP Address block 192.168.100.0/24. The server must be configured with the 10th usable IP Address.
 
-![image](https://github.com/user-attachments/assets/33d5e08c-fd11-4104-9f4d-4b022ceda409)
+"ip a" of Server 1 where you can see ens37 being 192.168.100.10 which is the static IP 
+![Skjámynd 2025-05-15 113735](https://github.com/user-attachments/assets/f793abb9-bd42-4af0-be97-12e2962b5fa1)
 
 
-
-
+### sudo nano of /etc/netplan/01-netcfg.yaml:
+![image](https://github.com/user-attachments/assets/2e4d728e-6f10-4aa9-ad8d-e5df923547e7)
 
 
 # 3. Install and configure DHCP on server1, so both clients get IP Addresses, Gateway, DNS IP address and domain name automatically via HDCP.
