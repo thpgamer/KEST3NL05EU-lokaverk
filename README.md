@@ -117,14 +117,13 @@ INPUT="$HOME/users_clean.csv"
 IFS=','
 
 while read name firstname lastname username email dept empid; do
-    # Skip header line
     if [[ "$username" == "Username" ]]; then
         continue
     fi
 
     echo "Creating user: $username ($name)"
 
-    # Create user with home directory and full name
+    # Create user with a directory at home
     sudo useradd -m -c "$name" "$username"
 
     # Set default password to "password123"
@@ -327,6 +326,56 @@ sudo nano /etc/chrony/chrony.conf # For Ubuntu Client1
 
 
 # 9. Install and configure syslog server on server1, server1 should get logs from both the clients for proactive management and monitoring.
+
+I download "rsyslog" on Server 1 with
+
+```
+sudo apt install rsyslog -y
+```
+
+I make a Directory in /var/log/remote in Server 1 with 
+
+```
+sudo mkdir /var/log/remote
+```
+
+Then configure the config file of /etc/rsyslog.d/10-remote.conf with this code
+
+```
+$template RemoteLogs,"/var/log/remote/%HOSTNAME%/%PROGRAMNAME%.log"
+*.* ?RemoteLogs
+```
+
+![image](https://github.com/user-attachments/assets/cb2dce00-84af-47ad-8fb0-0d287fbf9887)
+
+I install rsyslog on both Client1 and Client2 with these commands
+
+
+Client1 (Ubuntu)
+```
+sudo apt install rsyslog -y
+```
+
+Then I add a file in /etc/rsyslog.d/ called 90-forward.conf and make it forward logs to Server 1
+
+```
+*.* @192.168.100.10:514
+```
+
+Here is an image of it
+
+![image](https://github.com/user-attachments/assets/bb3114f0-e525-40f5-9344-15823f3e68d1)
+
+
+Client2 (CentOS)
+
+```
+sudo yum install rsyslog -y
+```
+
+And I do the same with client 2 
+
+
 # 10. Install and configure Postfix on server1, so users can send and receive emails using Round Cube open-source software.
 
 # 11. Install and configure shared printers for each group, only users that belong to the group should print only, accept IT and Management groups should print and manage the printers.
