@@ -229,7 +229,7 @@ UPDATE employees SET department_id = 1 WHERE kennitala = '1234567890';
 
 # 7. Due to data loss the company policy requires backups weekly, assystem engineer you are required to schedule backups of home directories to run weekly at midnight each Friday.
 
-I created a backup directory with 
+I created a backup directory on server 1 with 
 
 ```
 sudo mkdir -p /backups
@@ -246,10 +246,6 @@ BACKUP_FILE="/backups/home_backup_$DATE.tar.gz"
 
 # Create the backup
 tar -czf "$BACKUP_FILE" /home
-
-# Optional: Delete backups older than 4 weeks
-find /backups/home_backup_*.tar.gz -mtime +28 -delete
-
 ```
 
 I schedule it with "cron" with 
@@ -266,6 +262,7 @@ and put this code into it
 
 0 0 * * 5 is for midnight on Fridays
 
+and now it backs up files every midnight of Friday
 
 # 8. Install and configure NTP on server1 and clients, server1 must be master server and client must synchronize their time with the server.
 
@@ -290,9 +287,42 @@ restrict 192.168.100.0 mask 255.255.255.0 nomodify notrap
 
 ![image](https://github.com/user-attachments/assets/4b8b551a-9d4e-44c4-accb-e8cf2de3a932)
 
-Then I download NTPSEC on Client1 which is Ubuntu with the exact same sudo apt install as server1.
+Then I download crony on both clients
+
+```
+sudo apt install crony -y # Ubuntu Client1
+sudo yum install crony -y # CentOS Client2
+```
+
+After that happens I go into the chrony config file of both clients and add this little code on both of them
+
+```
+server 192.168.100.10 iburst
+
+driftfile /var/lib/chrony/chrony.drift
+makestep 1.0 3
+rtcsync
+```
+
+Client2 (CentOS)
+```
+sudo nano /etc/chrony.conf # For CentOS Client2
+```
+
+![image](https://github.com/user-attachments/assets/a29e9956-6b6e-429e-9997-cf92e384ad7d)
+
+![image](https://github.com/user-attachments/assets/98f13bdf-1b61-4b5d-af4f-a921ab5e894e)
 
 
+
+Client1 (Ubuntu)
+```
+sudo nano /etc/chrony/chrony.conf # For Ubuntu Client1
+```
+
+![image](https://github.com/user-attachments/assets/acebd34c-6a1c-45e6-8853-2f7c3e3b1836)
+
+![image](https://github.com/user-attachments/assets/679f777f-c622-40a2-9947-014c506abc6a)
 
 
 
