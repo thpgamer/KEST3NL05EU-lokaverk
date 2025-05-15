@@ -81,7 +81,7 @@ sudo nano /etc/bind/zones/db.ddp.is
 ![image](https://github.com/user-attachments/assets/240b3303-3cd5-4b92-a068-de1fff722220)
 
 
-And with that Clients can ping server1 and eachother and server 1 can ping 
+And with that Clients can ping server1 and eachother and server 1 can ping both clients
 
 
 
