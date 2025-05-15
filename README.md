@@ -26,7 +26,7 @@
 
 # 2. Configure server1 with static IP Address, from the IP Address block 192.168.100.0/24. The server must be configured with the 10th usable IP Address.
 
-"ip a" of Server 1 where you can see ens37 being 192.168.100.10 which is the static IP 
+### "ip a" of Server 1 where you can see ens37 being 192.168.100.10 which is the static IP 
 ![Skjámynd 2025-05-15 113735](https://github.com/user-attachments/assets/f793abb9-bd42-4af0-be97-12e2962b5fa1)
 
 
@@ -38,13 +38,22 @@
 ### server1 (Ubuntu)
 ![image](https://github.com/user-attachments/assets/0581d89f-a477-46a3-b8e0-c6aad6308a73)
 
+### DHCP server config file:
+![image](https://github.com/user-attachments/assets/be22afdb-f88b-4e99-b3e7-e8c0f585a93d)
+
+
 
 ### client1 (Ubuntu)
 ![image](https://github.com/user-attachments/assets/2db125d2-bb02-4d3f-9acc-f3bdad8b4807)
 
+![image](https://github.com/user-attachments/assets/465806fd-2aaa-4d90-a71e-842899d99e36)
+
 
 ### client2 (CentOS)
 ![image](https://github.com/user-attachments/assets/faeae2bb-ba71-4964-9f66-de255adf6337)
+
+![image](https://github.com/user-attachments/assets/8015cad1-0ccd-4603-8d2c-1a2d50d019ab)
+
 
 # 4. Install and configure DNS server on server1, so Hostnames are resolved to IP Addresses
 ![image](https://github.com/user-attachments/assets/b839f944-259f-4222-82d2-6fec58c79993)
