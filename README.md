@@ -1,15 +1,28 @@
 # KEST3NL05EU-lokaverk
 # 1. Install and configure the server1, client1 and client2 with hostnames and domain as ddp.is
-### Server 1 (Ubuntu
+### Server 1 (Ubuntu)
 ![image](https://github.com/user-attachments/assets/eb617061-9367-45d9-8463-930e35f2f234)
+
+/etc/hosts of Server 1:
+![Skjámynd 2025-05-15 113143](https://github.com/user-attachments/assets/401da22e-5096-4bda-a368-24dbe72669d2)
+
 
 
 ### Client 1 (Ubuntu)
 ![image](https://github.com/user-attachments/assets/202e27a3-4424-4745-b38c-3b94f5805aaa)
 
+/etc/hosts of Client 1:
+![image](https://github.com/user-attachments/assets/bead782c-e740-4a4d-b9b2-cee0466ca442)
+
+
+
 
 ### Client 2 (CentOS)
 ![image](https://github.com/user-attachments/assets/0e554994-859f-4d79-a5bd-678238347333)
+
+/etc/hosts of Client 2:
+![image](https://github.com/user-attachments/assets/646781c2-2d60-4355-87ac-5d991a978d54)
+
 
 # 2. Configure server1 with static IP Address, from the IP Address block 192.168.100.0/24. The server must be configured with the 10th usable IP Address.
 
