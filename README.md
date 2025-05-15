@@ -142,6 +142,8 @@ After this is done I can confirm that they did infact get created with
 ls /home
 ```
 
+All of their passwords are "password123"
+
 ![Skjámynd 2025-05-15 125710](https://github.com/user-attachments/assets/586a6415-9e37-4f17-b08a-d8797561b2f4)
 
 
