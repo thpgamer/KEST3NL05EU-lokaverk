@@ -30,7 +30,7 @@
 ![Skjámynd 2025-05-15 113735](https://github.com/user-attachments/assets/f793abb9-bd42-4af0-be97-12e2962b5fa1)
 
 
-### sudo nano of /etc/netplan/01-netcfg.yaml:
+```sudo nano /etc/netplan/01-netcfg.yaml```
 ![image](https://github.com/user-attachments/assets/2e4d728e-6f10-4aa9-ad8d-e5df923547e7)
 
 
@@ -41,7 +41,8 @@
 ### DHCP server config file:
 ![image](https://github.com/user-attachments/assets/be22afdb-f88b-4e99-b3e7-e8c0f585a93d)
 
-### sudo nano /etc/default/isc-dhcp-server: This is for saying the dhcp server will be on the interface "ens37"
+```sudo nano /etc/default/isc-dhcp-server```
+### : This is for saying the dhcp server will be on the interface "ens37"
 ![image](https://github.com/user-attachments/assets/39f3b7d5-56b4-4b8c-9fa0-1ae74d5af352)
 
 
@@ -64,7 +65,10 @@
 ### This is the sudo nano of /etc/bind/named.conf.options after I have installed bind9 (DNS)
 ![image](https://github.com/user-attachments/assets/955554c7-d38c-4a64-b14c-cf3d6f471463)
 
-### this is the zone definition of the DNS server under "sudo nano /etc/bind/named.conf.local"
+### this is the zone definition of the DNS server under 
+
+```sudo nano /etc/bind/named.conf.local```
+
 ![image](https://github.com/user-attachments/assets/29e1b03d-5b1e-4acf-aee8-d1ebbf59f7ca)
 
 
@@ -73,6 +77,15 @@
 sudo mkdir -p /etc/bind/zones
 sudo nano /etc/bind/zones/db.ddp.is
 ```
+
+![image](https://github.com/user-attachments/assets/240b3303-3cd5-4b92-a068-de1fff722220)
+
+
+And with that Clients can ping server1 and eachother and server 1 can ping 
+
+
+
+
 
 
 
