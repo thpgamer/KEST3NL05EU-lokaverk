@@ -96,17 +96,23 @@ And with that Clients can ping server1 and eachother and server 1 can ping both 
 # 5. Create the users accounts using a script, see the Users file.
 
 I first moved over the .CSV file to the VMware Linux Server 1 by doing:
+
 ```scp /Users/thord/Downloads/Linux_Users.CSV server1@192.168.100.10:/home/server1```
+
 on my own Laptop which would safely copy the file to the directory /home/server1/Linux_Users.CSV
 
 After that I see that when I cat the file I get a bunch of errors due to the File being in UTC-16
 I change it to UTC-8 with:
+
 ```iconv -f utf-16 -t utf-8 Linux_Users.CSV -o users_clean.csv```
 
 I create a Script with 
+
 ```nano ~/create_users.sh```
+
 and use this script code:
 ```
+
 INPUT="$HOME/users_clean.csv"
 IFS=','
 
@@ -131,6 +137,7 @@ done < "$INPUT"
 
 
 After this is done I can confirm that they did infact get created with 
+
 ```
 ls /home
 ```
