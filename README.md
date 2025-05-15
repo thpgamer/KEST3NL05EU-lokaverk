@@ -41,6 +41,10 @@
 ### DHCP server config file:
 ![image](https://github.com/user-attachments/assets/be22afdb-f88b-4e99-b3e7-e8c0f585a93d)
 
+### sudo nano /etc/default/isc-dhcp-server: This is for saying the dhcp server will be on the interface "ens37"
+![image](https://github.com/user-attachments/assets/39f3b7d5-56b4-4b8c-9fa0-1ae74d5af352)
+
+
 
 
 ### client1 (Ubuntu)
