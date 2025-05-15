@@ -149,7 +149,85 @@ All of their passwords are "password123"
 
 # 6. Install and configure MySQL on server1 and create Human Resource database. The database stores information about employees, employees are identified by their Kennitala, Firstname, Lastname, Email, phone Number, hire date and salary. Employees work in Departments where each department has one manager, departments are identified by department ID, department name. Each department is in a different location. Locations are identified by their location ID, city, Address, and zip code. One or more employees work in different jobs, and the jobs are identified by Job ID, job title, Min salary and max salary.
 
-# 7. Due to data lossthe company policy requires backups weekly, assystem engineer you are required to schedule backups of home directories to run weekly at midnight each Friday.
+Installed MySQL with:
+
+```
+sudo apt install mysql-server -y
+```
+
+then logged into MySQL with
+
+```
+sudo mysql -u root -p
+```
+
+I created a database named "human_resources
+
+then created a table called "locations" with
+
+```
+CREATE TABLE locations (
+    location_id INT PRIMARY KEY AUTO_INCREMENT,
+    city VARCHAR(100),
+    address VARCHAR(255),
+    zip_code VARCHAR(20)
+);
+```
+
+Then created another table called "departments" with
+
+```
+CREATE TABLE locations (
+    location_id INT PRIMARY KEY AUTO_INCREMENT,
+    city VARCHAR(100),
+    address VARCHAR(255),
+    zip_code VARCHAR(20)
+);
+```
+
+Then created a table called "jobs" with 
+
+```
+CREATE TABLE jobs (
+    job_id INT PRIMARY KEY AUTO_INCREMENT,
+    job_title VARCHAR(100),
+    min_salary DECIMAL(10,2),
+    max_salary DECIMAL(10,2)
+);
+```
+
+Then created a table called "employees" with
+
+```
+CREATE TABLE employees (
+    kennitala VARCHAR(20) PRIMARY KEY,
+    firstname VARCHAR(100),
+    lastname VARCHAR(100),
+    email VARCHAR(100) UNIQUE,
+    phone_number VARCHAR(20),
+    hire_date DATE,
+    salary DECIMAL(10,2),
+    department_id INT,
+    FOREIGN KEY (department_id) REFERENCES departments(department_id)
+);
+```
+
+I then created a Manager with
+
+```
+INSERT INTO employees (kennitala, firstname, lastname, email, phone_number, hire_date, salary, department_id)
+VALUES ('1234567890', 'Andri Mar', 'Fridriksson', 'amf@ddp.is', '555-1234', '2023-01-01', 7000.00, NULL);
+
+INSERT INTO locations (city, address, zip_code)
+VALUES ('Reykjavík', 'Hateigsvegur', '101');
+
+INSERT INTO departments (department_name, manager_kennitala, location_id)
+VALUES ('IT', '1234567890', 1);
+
+UPDATE employees SET department_id = 1 WHERE kennitala = '1234567890';
+```
+
+# 7. Due to data loss the company policy requires backups weekly, assystem engineer you are required to schedule backups of home directories to run weekly at midnight each Friday.
 
 I created a backup directory with 
 
@@ -190,6 +268,33 @@ and put this code into it
 
 
 # 8. Install and configure NTP on server1 and clients, server1 must be master server and client must synchronize their time with the server.
+
+I installed NTPSEC on server 1. and went and configured the config file with 
+
+```
+sudo nano /etc/ntpsec/ntp.conf
+```
+and added this to the config file.
+
+```
+driftfile /var/lib/ntpsec/ntp.drift
+
+server 127.127.1.0
+fudge 127.127.1.0 stratum 10
+
+restrict default kod nomodify nopeer noquery limited
+restrict 127.0.0.1
+restrict ::1
+restrict 192.168.100.0 mask 255.255.255.0 nomodify notrap
+```
+
+![image](https://github.com/user-attachments/assets/4b8b551a-9d4e-44c4-accb-e8cf2de3a932)
+
+Then I download NTPSEC on Client1 which is Ubuntu with the exact same sudo apt install as server1.
+
+
+
+
 
 # 9. Install and configure syslog server on server1, server1 should get logs from both the clients for proactive management and monitoring.
 # 10. Install and configure Postfix on server1, so users can send and receive emails using Round Cube open-source software.
