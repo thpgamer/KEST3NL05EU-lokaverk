@@ -60,6 +60,22 @@
 
 
 # 4. Install and configure DNS server on server1, so Hostnames are resolved to IP Addresses
+
+### This is the sudo nano of /etc/bind/named.conf.options after I have installed bind9 (DNS)
+![image](https://github.com/user-attachments/assets/955554c7-d38c-4a64-b14c-cf3d6f471463)
+
+### this is the zone definition of the DNS server under "sudo nano /etc/bind/named.conf.local"
+![image](https://github.com/user-attachments/assets/29e1b03d-5b1e-4acf-aee8-d1ebbf59f7ca)
+
+
+### I created the zone directory and file with 
+ ```
+sudo mkdir -p /etc/bind/zones
+sudo nano /etc/bind/zones/db.ddp.is
+```
+
+
+
 ![image](https://github.com/user-attachments/assets/b839f944-259f-4222-82d2-6fec58c79993)
 
 # 5. Create the users accounts using a script, see the Users file.
