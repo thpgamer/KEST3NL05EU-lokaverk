@@ -12,6 +12,7 @@
 ![image](https://github.com/user-attachments/assets/202e27a3-4424-4745-b38c-3b94f5805aaa)
 
 /etc/hosts of Client 1:
+
 ![image](https://github.com/user-attachments/assets/bead782c-e740-4a4d-b9b2-cee0466ca442)
 
 
@@ -21,6 +22,7 @@
 ![image](https://github.com/user-attachments/assets/0e554994-859f-4d79-a5bd-678238347333)
 
 /etc/hosts of Client 2:
+
 ![image](https://github.com/user-attachments/assets/646781c2-2d60-4355-87ac-5d991a978d54)
 
 
